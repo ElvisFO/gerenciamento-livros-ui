@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="ui-g">
+
+    <form (ngSubmit)="pesquisarPorAutor()">
+        <div class="ui-g-12">
+          <h1>Livros</h1>
+        </div>
+
+        <div class="ui-g-12 ui-fluid">
+          <label>Autor</label>
+          <input pInputText type="text" name="nomeAutor" [(ngModel)]="nomeAutor">
+        </div>
+
+        <div class="ui-g-12">
+          <button pButton type="submit" label="Pesquisar"></button>
+        </div>
+    </form>
+  </div>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="livros" [paginator]="true" [rows]="5"
+            [responsive]="true">
+          <p-column field="isbn" header="Isbn"></p-column>
+          <p-column field="titulo" header="Titulo"></p-column>
+          <p-column field="editora" header="Editora"></p-column>
+          <p-column field="dataDePublicacao" header="Publicado" styleClass="col-data">
+              <ng-template let-liv="rowData" pTemplate="body">
+                  <span>{{ liv.dataDePublicacao | date:'dd/MM/yyyy' }}</span>
+              </ng-template>
+          </p-column>
+          <p-column field="preco" header="Preço" styleClass="col-valor">
+            <ng-template let-liv="rowData" pTemplate="body">
+              {{ liv.preco | number:'1.2-2' }}
+            </ng-template>
+          </p-column>
+          <p-column *ngFor="let autor of autores" field="autores" header="Autores"></p-column>
+          <p-column styleClass="col-acoes">
+              <ng-template pTemplate="body">
+                <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+                <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+              </ng-template>
+          </p-column>
+        </p-dataTable>
+
+      </div>
+
+      <div class="ui-g-12">
+        <a pButton label="Novo Livro"></a>
+      </div>
+
+    </div>
+
+  </div>

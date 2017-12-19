@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div class="ui-g">
+
+      <form #f="ngForm" (ngSubmit)="cadastrar(f)">
+          <div class="ui-g-12">
+            <h1>Cadastro de livros</h1>
+          </div>
+
+          <div class="ui-g-3 ui-fluid">
+            <label>ISBN</label>
+            <input pInputText type="text" name="isbn"
+            required [(ngModel)]="livro.isbn" #isbn="ngModel">
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+            <label>Titulo</label>
+            <input pInputText type="text" name="titulo"
+            required [(ngModel)]="livro.titulo" #titulo="ngModel">
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+            <label>Editora</label>
+            <input pInputText type="text" name="editora"
+            required [(ngModel)]="livro.editora" #editora="ngModel">
+          </div>
+
+          <div class="ui-g-12 ui-fluid">
+              <div class="ui-g-6 ui-md-3 ui-fluid">
+                  <label>Data de publicação</label>
+                  <p-calendar dateFormat="dd/mm/yy" name="dataDePublicacao"
+                    [inline]="false" [readonlyInput]="false"
+                    [showIcon]="true"
+                    required [(ngModel)]="livro.dataDePublicacao" #dataDePublicacao="ngModel"></p-calendar>
+                </div>
+
+            <div class="ui-g-3 ui-fluid">
+                <label>Preço</label>
+                <input pInputText type="text" name="preco"
+                required [(ngModel)]="livro.preco" #preco="ngModel">
+              </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-6 ui-fluid">
+              <label>Autor</label>
+              <p-multiSelect name="autores" [options]="autores" [(ngModel)]="autoresSelecionados"  defaultLabel="Selecione"
+              [filter]="true"
+              required></p-multiSelect>
+            </div>
+
+          <div class="ui-g-12">
+            <button pButton type="submit" label="cadastrar"></button>
+          </div>
+      </form>
+    </div>
+  </div>

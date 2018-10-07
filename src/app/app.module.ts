@@ -21,6 +21,7 @@ import { InputTextareaModule } from 'primeng/components/inputtextarea/inputtexta
 import { DropdownModule } from 'primeng/components/dropdown/dropdown';
 import { CalendarModule } from 'primeng/components/calendar/calendar';
 import { MultiSelectModule } from 'primeng/components/multiselect/multiselect';
+import { InputComponent } from './shared/input/input.component';
 
 
 
@@ -30,7 +31,8 @@ import { MultiSelectModule } from 'primeng/components/multiselect/multiselect';
     AppComponent,
     NavbarComponent,
     LivrosPesquisaComponent,
-    LivrosCadastroComponent
+    LivrosCadastroComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,

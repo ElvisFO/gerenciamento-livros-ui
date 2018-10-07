@@ -7,23 +7,27 @@
             <h1>Cadastro de livros</h1>
           </div>
 
-          <div class="ui-g-3 ui-fluid">
-            <label>ISBN</label>
-            <input pInputText type="text" name="isbn"
-            required [(ngModel)]="livro.isbn" #isbn="ngModel">
+          {{f.valid | json}}
+          {{f.value | json}}
+
+          <div class="ui-g-12 ui-fluid">
+            <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="ISBN">
+              <input pInputText name="isbn" required minlength="5" ngModel>
+            </app-input-container>
           </div>
 
           <div class="ui-g-12 ui-fluid">
-            <label>Titulo</label>
-            <input pInputText type="text" name="titulo"
-            required [(ngModel)]="livro.titulo" #titulo="ngModel">
+            <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Título">
+              <input pInputText name="titulo" required minlength="5" ngModel>
+            </app-input-container>
           </div>
 
           <div class="ui-g-12 ui-fluid">
-            <label>Editora</label>
-            <input pInputText type="text" name="editora"
-            required [(ngModel)]="livro.editora" #editora="ngModel">
+            <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Editora">
+              <input pInputText name="editora" required minlength="5" ngModel>
+            </app-input-container>
           </div>
+
 
           <div class="ui-g-12 ui-fluid">
               <div class="ui-g-6 ui-md-3 ui-fluid">
@@ -32,21 +36,27 @@
                     [inline]="false" [readonlyInput]="false"
                     [showIcon]="true"
                     required [(ngModel)]="livro.dataDePublicacao" #dataDePublicacao="ngModel"></p-calendar>
-                </div>
+              </div>
 
-            <div class="ui-g-3 ui-fluid">
-                <label>Preço</label>
-                <input pInputText type="text" name="preco"
-                required [(ngModel)]="livro.preco" #preco="ngModel">
+              <div class="ui-g-6 ui-md-3 ui-fluid">
+                <app-input-container errorMessage="Preço obrigatório" label="Preço">
+                  <input pInputText name="preco" required  ngModel>
+                </app-input-container>
               </div>
           </div>
 
           <div class="ui-g-12 ui-md-6 ui-fluid">
-              <label>Autor</label>
-              <p-multiSelect name="autores" [options]="autores" [(ngModel)]="autoresSelecionados"  defaultLabel="Selecione"
+            <app-input-container errorMessage="Autor obrigatório" label="Autor">
+              <!--<p-multiSelect name="autores" [options]="autores" ngModel defaultLabel="Selecione"
               [filter]="true"
-              required></p-multiSelect>
-            </div>
+              required></p-multiSelect>-->
+              <select required name="autores" ngModel>
+                <option value="">Selecione</option>
+                <option value="1">Olavo de Carvalho</option>
+                <option value="2">Clarice Lispector</option>
+              </select>
+            </app-input-container>
+          </div>
 
           <div class="ui-g-12">
             <button pButton type="submit" label="cadastrar"></button>

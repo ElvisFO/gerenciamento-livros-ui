@@ -38,3 +38,19 @@ label {
   width: 90px;
   text-align: center;
 }
+
+input.ng-valid.ng-touched {
+  border: 1px solid #4F8A10;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #D8000C;
+}
+
+select.ng-valid.ng-touched {
+  border: 1px solid #4F8A10 !important;
+}
+
+select.ng-invalid.ng-touched {
+  border: 1px solid #D8000C !important;
+}

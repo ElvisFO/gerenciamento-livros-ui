@@ -1,0 +1,9 @@
+<div class="ui-g-12 ui-fluid" [class.error]="!field.valid && (field.dirty || field.touched)"
+                              [class.sucess]="field.valid && (field.dirty || field.touched)">
+  <label>{{label}}</label>
+
+  <ng-content></ng-content>
+
+  <span class="error-detail" *ngIf="!field.valid && (field.dirty || field.touched)">{{errorMessage}}</span>
+  <span class="error-sucess" *ngIf="field.valid && (field.dirty || field.touched)">Ok</span>
+</div>

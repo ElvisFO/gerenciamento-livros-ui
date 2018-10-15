@@ -1,8 +1,30 @@
-<div class="ui-g-12 ui-fluid" [class.error]="!field.valid && (field.dirty || field.touched)"
+<!--<div class="ui-g-12 ui-fluid" [class.error]="!field.valid && (field.dirty || field.touched)"
                               [class.sucess]="field.valid && (field.dirty || field.touched)">
   <label>{{label}}</label>
 
   <ng-content></ng-content>
+
+  <span class="error-detail" *ngIf="!field.valid && (field.dirty || field.touched)">{{errorMessage}}</span>
+  <span class="error-sucess" *ngIf="field.valid && (field.dirty || field.touched)">Ok</span>
+</div>-->
+
+<div class="ui-g-12 ui-fluid" *ngIf="typeField === 'input'">
+  <label>{{label}}</label>
+
+  <input pInputText #input (keyup)="setValue(input.value)">
+
+  <span class="error-detail" *ngIf="!field.valid && (field.dirty || field.touched)">{{errorMessage}}</span>
+  <span class="error-sucess" *ngIf="field.valid && (field.dirty || field.touched)">Ok</span>
+</div>
+
+<div class="ui-g-12 ui-fluid" *ngIf="typeField === 'select'">
+  <label>{{label}}</label>
+
+  <select #select (change)="setValue(select.value)">
+      <option value="">Selecione</option>
+      <option value="1">Olavo de Carvalho</option>
+      <option value="2">Clarice Lispector</option>
+  </select>
 
   <span class="error-detail" *ngIf="!field.valid && (field.dirty || field.touched)">{{errorMessage}}</span>
   <span class="error-sucess" *ngIf="field.valid && (field.dirty || field.touched)">Ok</span>

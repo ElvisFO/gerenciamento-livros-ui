@@ -11,12 +11,18 @@
           {{f.value | json}}
 
           <div class="ui-g-12 ui-fluid">
-            <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="ISBN">
-              <input pInputText name="isbn" required minlength="5" ngModel>
+            <app-input-container required typeField="input" errorMessage="Campo obrigatório" label="ISBN" name="isbn"
+            ngModel [(ngModel)]="livro.isbn">
             </app-input-container>
           </div>
 
           <div class="ui-g-12 ui-fluid">
+              <app-input-container required typeField="select" errorMessage="Campo obrigatório" label="Autor" name="autor"
+            [(ngModel)]="livro.autores">
+              </app-input-container>
+          </div>
+
+          <!--<div class="ui-g-12 ui-fluid">
             <app-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Título">
               <input pInputText name="titulo" required minlength="5" ngModel>
             </app-input-container>
@@ -50,13 +56,13 @@
               <!--<p-multiSelect name="autores" [options]="autores" ngModel defaultLabel="Selecione"
               [filter]="true"
               required></p-multiSelect>-->
-              <select required name="autores" ngModel>
+           <!--   <select required name="autores" ngModel>
                 <option value="">Selecione</option>
                 <option value="1">Olavo de Carvalho</option>
                 <option value="2">Clarice Lispector</option>
               </select>
             </app-input-container>
-          </div>
+          </div> -->
 
           <div class="ui-g-12">
             <button pButton type="submit" label="cadastrar"></button>

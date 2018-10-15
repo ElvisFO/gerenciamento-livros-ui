@@ -23,7 +23,7 @@ export class LivrosCadastroComponent implements OnInit {
 
   ngOnInit()
   {
-    this.carregarAutores();
+    // this.carregarAutores();
   }
 
   carregarAutores() {
